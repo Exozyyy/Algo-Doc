@@ -42,6 +42,7 @@ html, body {
 }
 
 input[type="email"],
+input[type="text"],
 input[type="password"] {
   width: 100%;
   padding: 10px;
@@ -55,6 +56,7 @@ input[type="password"] {
 }
 
 input[type="email"]::placeholder,
+input[type="text"]::placeholder,
 input[type="password"]::placeholder {
   color: #b0b0b0; /* Цвет плейсхолдера */
 }
@@ -133,6 +135,7 @@ button:hover {
   }
   
   input[type="email"],
+  input[type="text"],
   input[type="password"] {
     padding: 8px;
     font-size: 14px;
