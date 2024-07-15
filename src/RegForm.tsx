@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import './AuthForm.css';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CryptoJS from 'crypto-js';
 
 export default function AuthForm() {
@@ -13,6 +13,7 @@ export default function AuthForm() {
   }
 
   const { register, handleSubmit} = useForm<RegFormProps>();
+  const navigateMain = useNavigate()
 
   const submitForm: SubmitHandler<RegFormProps> = async data => {
     if (data.password !== data.confirmPassword) {
@@ -23,12 +24,12 @@ export default function AuthForm() {
     const hashedPassword = CryptoJS.SHA256(data.password).toString(CryptoJS.enc.Hex);
 
     try {
-      const response = await axios.post('сюда апишку ставь', {
+      const response = await axios.post('https://jsonplaceholder.typicode.com/posts', { //тест апи для пост запроса, нужно поставить будет сюда свое
         username: data.username,
         email: data.email,
         password: hashedPassword,
       });
-
+      navigateMain('/algo-doc');
       localStorage.setItem('user', JSON.stringify(response.data));
     } catch (error) {
       if (axios.isAxiosError(error)) {
@@ -58,7 +59,7 @@ export default function AuthForm() {
             <input type="password" id="confirm-password" required placeholder="Подтвердите Пароль"
               {...register('confirmPassword')} />
           </div>
-          <button className="submit" type="submit">Зарегистрироваться</button>
+          <button className="submit" type="submit" >Зарегистрироваться</button>
         </form>
         <div className="spacer"></div>
         <Link to="/" className="link-register">Есть аккаунт? <strong>Войти</strong></Link>

@@ -14,13 +14,14 @@ const {register, handleSubmit} = useForm<AuthFormProps>()
 
 const submitForm: SubmitHandler<AuthFormProps> = async data => {
   try {
-    await axios.get('сюда апишку ставь' ///!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    const response = await axios.get('сюда апишку ставь' ///!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
       , {
       params: {
         email: data.username,
         password: data.password,
       }
     });
+    localStorage.setItem('user', JSON.stringify(response.data));
   } catch (error) {
     if (axios.isAxiosError(error)) {
       console.error('Ошибка:', error.response?.data);
