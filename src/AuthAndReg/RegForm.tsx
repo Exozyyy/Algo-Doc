@@ -28,7 +28,7 @@ export default function AuthForm() {
         email: data.email,
         password: hashedPassword,
       });
-      navigate('/algo-doc');
+      navigate('/');
       localStorage.setItem('user', JSON.stringify(response.data));
     } catch (error) {
       if (axios.isAxiosError(error)) {

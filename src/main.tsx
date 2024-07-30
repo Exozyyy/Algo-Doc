@@ -6,9 +6,9 @@ import MainPage from './site/MainPage';
 import './index.css';  // Импортируйте ваш CSS файл с директивами Tailwind
 
 const router = createBrowserRouter([
-  { path: '/', element: <AuthForm /> },
+  { path: '/', element: <MainPage /> },
   { path: "/register", element: <RegForm /> },
-  { path: "/algo-doc", element: <MainPage /> }
+  { path: "/auth", element: <AuthForm /> }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

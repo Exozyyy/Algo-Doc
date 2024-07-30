@@ -1,30 +1,49 @@
-# React + TypeScript + Vite
+# algo-doc
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**algo-doc** - это веб-приложение для изучения алгоритмов, включающее систему аккаунтов и постов. Проект разработан с использованием React и TypeScript и использует Vite для сборки и запуска.
 
-Currently, two official plugins are available:
+## Установка
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Для установки и запуска проекта выполните следующие шаги:
 
-## Expanding the ESLint configuration
+1. **Клонирование репозитория:**
+   ```bash
+   git clone <URL-репозитория>
+   cd react-algo-doc
+   ```
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+2. **Установка зависимостей**
+   ```
+   npm install
+   ```
 
-- Configure the top-level `parserOptions` property like this:
+## Скрипты
+В проекте доступны следующие скрипты:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+npm run dev - Запуск проекта в режиме разработки.
+npm run build - Сборка проекта для продакшена.
+npm run lint - Проверка кода с помощью ESLint.
+npm run preview - Предпросмотр собранного проекта.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Запуск проекта и использование
+После запуска проекта (с помощью команды npm run dev) пользователь попадет на главную страницу. На которой есть опция входа там же и регистрация, можно пользоваться без входа, но функционал будет ограничен(в будуещем)
+
+## Структура проекта
+public/: Папка для статических файлов (на данный момент пустая).
+src/: Исходный код проекта, включая:
+AuthAndReg/: Компоненты для авторизации и регистрации (AuthForm.tsx, RegForm.tsx).
+site/: Главная страница приложения (MainPage.tsx).
+App.tsx: Основной компонент приложения.
+main.tsx: Точка входа приложения.
+Стили: В приложении используется Tailwind CSS 
+
+## Зависимости 
+Проект использует следующие основные зависимости:
+
+React: ^18.3.1
+React DOM: ^18.3.1
+React Hook Form: ^7.52.1
+React Router DOM: ^6.24.1
+Axios: ^1.7.2
+Crypto JS: ^4.2.0
+Разработческие зависимости включают TypeScript, ESLint, TailwindCSS и другие инструменты для разработки.
